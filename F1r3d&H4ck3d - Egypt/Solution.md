@@ -1,6 +1,6 @@
 # F1r3d&H4ck3d - Egypt
 
-So we got there Folder with a bunch of files inside.
+So we got a Folder with a bunch of files inside.
 Some Word Documents, PCAP files and other stuff.
 
 We noticed this suspicios Screenshot in the Folder:
@@ -28,9 +28,13 @@ After this they were usable with aircrack-ng
 
 ##### WEP
 
-WEP is easily crackable with captured IV. We had enough captured traffic to crack them via aircrack-ng
+WEP is easily crackable with captured IV. We had enough captured traffic to crack them via aircrack-ng.
+But there were not enough in a single PCAP File. You need minimum of 5000 IVs to crack it.
+Therefore we combined all the PCAP files with the following tool which is integrated of aircrack: '`mergecap` (check manpage for usage)
 
-`aircrack-ng -b BSSID output*.cap`
+After we merged the files we had enough data to crack the password easily with the following command:
+
+`aircrack-ng -b BSSID <merged PCAP File>`
 
 ##### WPA2/PSK
 
@@ -39,7 +43,7 @@ It is possible to bruteforce the password of a WPA2/PSK Network if you have a ha
 
 We tried the password.lst in the test folder, and the rockyou wordlist with Hashcat to crack the password, but it wasn't there.
 Then cluosh found a link to a password list in one of the word documents.
-This was the key for the solution. The used password was in the passwordlist. And we cracked the password.
+This was the key for the solution. The used password was in the passwordlist. And we cracked the password via [hashcat](https://hashcat.net/hashcat/)
 
 <br />
 #####The Flag
