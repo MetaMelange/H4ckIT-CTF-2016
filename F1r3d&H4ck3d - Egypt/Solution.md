@@ -30,7 +30,7 @@ After this they were usable with aircrack-ng
 
 WEP is easily crackable with captured IV. We had enough captured traffic to crack them via aircrack-ng.
 But there were not enough in a single PCAP File. You need minimum of 5000 IVs to crack it.
-Therefore we combined all the PCAP files with the following tool which is integrated of aircrack: '`mergecap` (check manpage for usage)
+Therefore we combined all the PCAP files with the following tool which is integrated of aircrack: `mergecap` (check manpage for usage)
 
 After we merged the files we had enough data to crack the password easily with the following command:
 
@@ -38,12 +38,12 @@ After we merged the files we had enough data to crack the password easily with t
 
 ##### WPA2/PSK
 
-In the captured traffic was also a between a Client and the FLAGPART2 Network.
-It is possible to bruteforce the password of a WPA2/PSK Network if you have a handshake captured.
+In the captured traffic was also a handshake between a Client and the FLAGPART2 Network.
+It is possible to bruteforce the password of a WPA2/PSK Network if you have captured a handshake.
 
-We tried the password.lst in the test folder, and the rockyou wordlist with Hashcat to crack the password, but it wasn't there.
+We tried the password.lst file in the test folder, and the rockyou wordlist with [hashcat](https://hashcat.net/hashcat/) to crack the password, but the password wasn't there.
 Then cluosh found a link to a password list in one of the word documents.
-This was the key for the solution. The used password was in the passwordlist. And we cracked the password via [hashcat](https://hashcat.net/hashcat/)
+This was the key for the solution. The used password was in the passwordlist and we cracked the password via [hashcat](https://hashcat.net/hashcat/)
 
 <br />
 #####The Flag
